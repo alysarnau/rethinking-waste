@@ -57,7 +57,7 @@ nav {
 
 .logo {
     font-size: 2.5rem;
-    color: var(--color-sec);
+    color: var(--green);
 }
 
 .nav-list,
@@ -83,8 +83,9 @@ section {
 }
 
 .box {
-    border: 1px solid var(--grey);
+    border: 1px solid var(--green);
     padding: 2rem;
+    border-radius: 10px 0 10px 0;
 }
 
 h2 {
@@ -110,5 +111,5 @@ a {
 }
 
 .flex>img {
-    width: 45%;
+    width: 50%;
 }
