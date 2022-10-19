@@ -20,6 +20,8 @@
 
 html {
     font-size: 10px;
+    /* css smooth scrolling */
+    /* scroll-behavior: smooth; */
 }
 
 body {
@@ -36,7 +38,77 @@ img {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+header {
+    width: 100%;
+    background-color: var(--black);
+}
+
+nav {
+    height: 7.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--color-sec);
+}
+
+.nav-list,
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list li {
+    list-style: none;
+    margin: 0 1.5rem;
+}
+
+.nav-list>li>a {
+    color: var(--white);
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+section {
+    padding: 3rem 0;
+}
+
+.box {
+    border: 1px solid var(--grey);
+    padding: 2rem;
+}
+
+h2 {
+    color: var(--color-primary);
+    font-size: 3rem;
+}
+
+.flex > * {
+    margin: 5px;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    text-align: center;
+}
+
+a {
+    display: inline;
+}
+
+.flex>img {
+    width: 45%;
 }
