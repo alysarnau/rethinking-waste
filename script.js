@@ -10,5 +10,10 @@ function smoothScroll(e) {
     document.querySelector(href).scrollIntoView({
         behavior: "smooth",
     });
-    
 }
+
+// sticky header
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 0)
+})
