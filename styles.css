@@ -52,12 +52,14 @@ header {
     z-index: 111;
     transition: all .5s;
     background-color: rgb(34, 40, 49, 0.8);
+    color: white;
 }
 
 header.sticky {
     background-color: rgba(238, 238, 238, 0.9);
     border-bottom: 1px solid var(--green);
     padding: 1rem 0;
+    color: var(--dark-grey);
 }
 
 nav {
@@ -84,14 +86,14 @@ nav {
     margin: 0 1.5rem;
 }
 
-.nav-list>li>a {
-    color: var(--white);
+.nav-list a {
+    color: var(--dark);
     font-size: 1.6rem;
     text-decoration: none;
 }
 
-header.sticky li a {
-    color: var(--dark-grey);
+li a {
+    color: var(--white);
 }
 
 section.header {
@@ -135,5 +137,23 @@ a {
 
 .flex>img {
     width: 50%;
+}
+
+.active {
+    position: relative;
+}
+
+.nav-list > .active > * {
+    color: var(--green);
+}
+
+.active::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--dark-grey);
 }
 
