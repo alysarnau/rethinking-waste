@@ -157,3 +157,23 @@ a {
     background-color: var(--dark-grey);
 }
 
+.top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background-color: transparent;
+    padding: 1rem;
+    border: 1px solid var(--green);
+    outline: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 111;
+    opacity: 0;
+    transform: translateY(10rem);
+    transition: all .3s;
+}
+
+.show-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
