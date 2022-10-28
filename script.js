@@ -3,6 +3,9 @@ const links = document.querySelectorAll(".nav-list li a");
 for (let link of links) {
     link.addEventListener('click', smoothScroll)
 }
+const rootElement = document.documentElement;
+let width = window.innerWidth
+
 
 function smoothScroll(e) {
     e.preventDefault();
@@ -10,6 +13,9 @@ function smoothScroll(e) {
     document.querySelector(href).scrollIntoView({
         behavior: "smooth",
     });
+    if (width < 1000) {
+        hideMenu();
+    }
 }
 
 window.addEventListener('scroll', () => {
@@ -27,7 +33,7 @@ navList.addEventListener("click", (e) => {
 })
 
 const scrollButton = document.querySelector(".top")
-const rootElement = document.documentElement;
+
 
 document.addEventListener("scroll", showButton)
 scrollButton.addEventListener("click", scrollToTop)
@@ -47,3 +53,25 @@ function scrollToTop() {
         behavior: "smooth"
     })
 }
+
+// mobile responsive menu
+
+const menu = document.querySelector(".nav-list")
+const hamburger = document.querySelector(".hamburger")
+const closeIcon = document.querySelector(".close")
+
+const showMenu = () => {
+    hamburger.style.display = "none";
+    closeIcon.style.transform = "translateY(0rem)"
+    menu.style.transform = "translateY(0)"
+}
+
+const hideMenu = () => {
+    closeIcon.style.transform = "translateY(-40rem)";
+    hamburger.style.display = "block";
+    menu.style.transform = "translateY(-200%)"
+}
+
+hamburger.addEventListener("click", showMenu)
+closeIcon.addEventListener("click", hideMenu)
+

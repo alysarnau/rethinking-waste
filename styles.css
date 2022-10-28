@@ -62,6 +62,10 @@ header.sticky {
     color: var(--dark-grey);
 }
 
+header.sticky a {
+    color: var(--dark-grey);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -87,7 +91,7 @@ nav {
 }
 
 .nav-list a {
-    color: var(--dark);
+    color: var(--white);
     font-size: 1.6rem;
     text-decoration: none;
 }
@@ -176,4 +180,80 @@ a {
 .show-btn {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media screen and (min-width: 1000px) {
+    .hamburger,
+    .close {
+        display: none;
+    }
+}
+
+/* responsive menu */
+@media screen and (max-width: 1000px) {
+    .flex,
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .hamburger,
+    .close {
+        display: block;
+    }
+
+    nav i {
+        font-size: 2.4rem;
+        cursor: pointer;
+        display: block;
+    }
+
+    nav {
+        max-height: 5rem;
+    }
+
+    .fa-times.close {
+        position: absolute;
+        right: 3px;
+        transform: translateY(-40rem);
+        transition: all 0.5s;
+    }
+
+    .nav-list {
+        width: 90%;
+        margin: 0 auto;
+        padding: 2rem 0;
+        margin-top: 1.5rem;
+        background-color: rgba(0,0,0,.8);
+        border: 1px solid skyblue;
+        border-radius: 3px;
+        z-index: 999;
+        transform: translateY(-200%);
+        transition: all 0.5s;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-list li {
+        width: 80%;
+        padding: 5px 0;
+        font-size: 1.6rem;
+        border-bottom: 1px solid var(--white);
+        text-align: center;
+    }
+
+    .nav-list a,
+    .sticky a,
+    header.sticky a {
+        color: var(--white);
+    }
+
+    .nav-list li:first-child {
+        border-top: 1px solid var(--white);
+    }
+
+    .nav-list li a:hover {
+        color: var(--color-sec);
+    }
 }
