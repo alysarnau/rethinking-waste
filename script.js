@@ -1,11 +1,19 @@
 const links = document.querySelectorAll(".nav-list li a");
+const menu = document.querySelector(".nav-list")
+const hamburger = document.querySelector(".hamburger")
+const closeIcon = document.querySelector(".close")
+const navList = document.querySelector(".nav-list")
+const scrollButton = document.querySelector(".top")
+
+const rootElement = document.documentElement;
+let width = window.innerWidth
+
+window.onscroll = () => scrollProgress()
+
 
 for (let link of links) {
     link.addEventListener('click', smoothScroll)
 }
-const rootElement = document.documentElement;
-let width = window.innerWidth
-
 
 function smoothScroll(e) {
     e.preventDefault();
@@ -23,7 +31,6 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('sticky', window.scrollY > 0)
 })
 
-const navList = document.querySelector(".nav-list")
 navList.addEventListener("click", (e) => {
     const navLink = e.target.parentElement
     if (navLink.classList.contains("link")) {
@@ -31,9 +38,6 @@ navList.addEventListener("click", (e) => {
         navLink.classList.add("active")
     }
 })
-
-const scrollButton = document.querySelector(".top")
-
 
 document.addEventListener("scroll", showButton)
 scrollButton.addEventListener("click", scrollToTop)
@@ -54,12 +58,6 @@ function scrollToTop() {
     })
 }
 
-// mobile responsive menu
-
-const menu = document.querySelector(".nav-list")
-const hamburger = document.querySelector(".hamburger")
-const closeIcon = document.querySelector(".close")
-
 const showMenu = () => {
     hamburger.style.display = "none";
     closeIcon.style.transform = "translateY(0rem)"
@@ -75,3 +73,13 @@ const hideMenu = () => {
 hamburger.addEventListener("click", showMenu)
 closeIcon.addEventListener("click", hideMenu)
 
+function scrollProgress() {
+    const progressBar = document.querySelector(".progress")
+
+    const currentScrollState = document.body.scrollTop || rootElement.scrollTop
+    const pageHeight = rootElement.scrollHeight - rootElement.clientHeight
+    const scrollPercent = (currentScrollState / pageHeight) * 100
+
+    progressBar.style.visibility = "visible"
+    progressBar.style.width = scrollPercent + "%"
+}
